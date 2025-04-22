@@ -1,11 +1,10 @@
-
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/sonner";
-import { supabase } from "@/lib/utils"; // assumes supabase client is exported here
+import { supabase } from "@/lib/utils";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -65,4 +64,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/sonner";
-import { supabase } from "@/lib/utils"; // assumes supabase client is exported here
+import { supabase } from "@/lib/utils";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");

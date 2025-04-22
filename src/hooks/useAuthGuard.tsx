@@ -9,14 +9,17 @@ export function useAuthGuard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const session = supabase.auth.getSession().then(({ data: { session } }) => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         navigate("/sign-in");
       } else {
         setUser(session.user);
       }
       setLoading(false);
-    });
+    };
+
+    checkSession();
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!session) {
