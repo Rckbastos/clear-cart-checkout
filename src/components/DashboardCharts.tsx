@@ -1,5 +1,4 @@
-
-import { Funnel, BarChart2, Info } from "lucide-react";
+import { BarChart2, Info } from "lucide-react";
 
 export default function DashboardCharts() {
   return (
