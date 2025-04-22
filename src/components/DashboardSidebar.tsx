@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   ShoppingCart,
@@ -77,7 +76,7 @@ const MENU = [
 
 export default function DashboardSidebar() {
   const [expanded, setExpanded] = useState(true);
-  const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
     pedidos: true,
     marketing: false,
     checkout: false,
@@ -159,7 +158,7 @@ export default function DashboardSidebar() {
             </button>
             {/* Submenu */}
             {item.collapsible && expanded && openSections[item.key] && (
-              <ul className="ml-7 border-l pl-3 my-1" style={{borderColor: dividerColor}}>
+              <ul className="ml-7 border-l pl-3 my-1" style={{ borderColor: dividerColor }}>
                 {item.items?.map((sub) => (
                   <li key={sub.label}>
                     <button
@@ -179,12 +178,18 @@ export default function DashboardSidebar() {
           </div>
         ))}
       </nav>
-      <div className="mt-auto flex flex-col items-center mb-2 w-full">
+      <div className="mt-auto flex flex-col items-center mb-2 w-full gap-1">
         <button
           className={`flex items-center rounded-lg hover:bg-primary/10 transition p-2 ${expanded ? "w-full justify-start gap-3" : "w-10 justify-center"}`}
         >
           <User size={22} color={iconColor} />
           {expanded && <span className="text-sm font-medium" style={{ color: labelColor }}>Perfil</span>}
+        </button>
+        <button
+          className={`flex items-center rounded-lg hover:bg-primary/10 transition p-2 ${expanded ? "w-full justify-start gap-3" : "w-10 justify-center"}`}
+        >
+          <Settings size={22} color={iconColor} />
+          {expanded && <span className="text-sm font-medium" style={{ color: labelColor }}>Configurações</span>}
         </button>
         {!expanded && (
           <button
