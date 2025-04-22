@@ -1,11 +1,8 @@
-
 import { User, Sun, Moon } from "lucide-react";
-
 export default function DashboardHeader() {
-  return (
-    <header className="w-full flex items-center justify-between px-2 md:px-6 py-3 border-b border-[#ececf0] bg-white/70 backdrop-blur-xl">
+  return <header className="w-full flex items-center justify-between px-2 md:px-6 py-3 border-b border-[#ececf0] backdrop-blur-xl bg-gray-50">
       <div>
-        <h1 className="text-xl md:text-2xl font-bold text-[#383748]">Métricas</h1>
+        <h1 className="text-xl md:text-2xl font-bold text-[#383748]">Pegasus</h1>
         <p className="text-gray-400 text-xs">Gerencie os resultados de seu negócio</p>
       </div>
       <div className="flex items-center gap-3">
@@ -23,6 +20,5 @@ export default function DashboardHeader() {
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 }
