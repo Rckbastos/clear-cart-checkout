@@ -14,6 +14,8 @@ import {
   ChevronDown,
   ChevronUp,
   Code,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const MENU = [
