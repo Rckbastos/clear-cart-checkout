@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 export function useAuthGuard() {
   const [loading, setLoading] = useState(true);
