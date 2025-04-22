@@ -1,12 +1,10 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import CheckoutCard from "@/components/CheckoutCard";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-purple-50 to-indigo-100 dark:from-neutral-900 dark:via-indigo-950 dark:to-gray-900 transition-all duration-300">
+      <CheckoutCard />
     </div>
   );
 };
