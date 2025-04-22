@@ -1,5 +1,5 @@
 
-import { ShoppingCart, ShoppingBag, Wallet, ArrowRight, BarChart, Layers, Settings, User, Package } from "lucide-react";
+import { ShoppingCart, ShoppingBag, Wallet, ArrowRight, BarChart, Layers, Settings, User, Package, Megaphone, CreditCard, Truck } from "lucide-react";
 
 const sidebarItems = [
   { icon: <BarChart size={22} />, tooltip: "Métricas" },
@@ -8,6 +8,11 @@ const sidebarItems = [
   { icon: <Wallet size={22} />, tooltip: "Financeiro" },
   { icon: <Layers size={22} />, tooltip: "Integrações" },
   { icon: <Settings size={22} />, tooltip: "Configurações" },
+  // New items below
+  { icon: <Megaphone size={22} />, tooltip: "Marketing" },
+  { icon: <CreditCard size={22} />, tooltip: "Gateways" },
+  { icon: <Truck size={22} />, tooltip: "Fretes" },
+  { icon: <ShoppingCart size={22} />, tooltip: "Checkout" },
 ];
 
 export default function DashboardSidebar() {
