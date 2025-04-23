@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { SidebarDesktop } from "./dashboard-sidebar/SidebarDesktop";
 import { SidebarMobile } from "./dashboard-sidebar/SidebarMobile";
@@ -91,8 +90,6 @@ export default function DashboardSidebar() {
         menu={MENU}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
-        imageUrl={null}
-        setImageUrl={() => {}}
       />
       <SidebarDesktop
         expanded={expanded}
@@ -100,8 +97,6 @@ export default function DashboardSidebar() {
         menu={MENU}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
-        imageUrl={null}
-        setImageUrl={() => {}}
       />
     </>
   );

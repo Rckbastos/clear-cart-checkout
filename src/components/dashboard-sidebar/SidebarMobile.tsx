@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
@@ -24,8 +23,6 @@ type Props = {
   menu: any[];
   openSections: { [key: string]: boolean };
   handleToggleSection: (key: string) => void;
-  imageUrl: string | null;
-  setImageUrl: (url: string | null) => void;
 };
 
 export function SidebarMobile({
@@ -34,8 +31,6 @@ export function SidebarMobile({
   menu,
   openSections,
   handleToggleSection,
-  imageUrl,
-  setImageUrl,
 }: Props) {
   const dividerColor = "#e5e7eb";
   const iconColor = "#6E59A5";
@@ -69,11 +64,9 @@ export function SidebarMobile({
         style={{ borderRight: `1px solid ${dividerColor}` }}
       >
         <div className="flex flex-col h-full">
-          {/* Logo fixa (imagem horizontal/retangular) */}
+          {/* Updated logo and app name */}
           <SidebarLogo className="mt-4 mb-2" />
           <div className="flex items-center justify-between p-4 pb-2">
-            {/* Repetir logo se quiser na versão mobile */}
-            {/* <SidebarLogo /> */}
             <button
               className="ml-auto rounded-lg hover:bg-primary/10 p-1 transition"
               aria-label="Fechar menu lateral"

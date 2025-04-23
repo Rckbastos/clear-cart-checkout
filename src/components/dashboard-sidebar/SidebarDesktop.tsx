@@ -25,8 +25,6 @@ type Props = {
   menu: any[];
   openSections: { [key: string]: boolean };
   handleToggleSection: (key: string) => void;
-  imageUrl: string | null;
-  setImageUrl: (url: string | null) => void;
 };
 
 export function SidebarDesktop({
@@ -35,8 +33,6 @@ export function SidebarDesktop({
   menu,
   openSections,
   handleToggleSection,
-  imageUrl,
-  setImageUrl
 }: Props) {
   const dividerColor = "#e5e7eb";
   const iconColor = "#6E59A5";
