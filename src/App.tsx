@@ -1,8 +1,10 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
@@ -13,8 +15,8 @@ import SignUp from "./pages/SignUp";
 const queryClient = new QueryClient();
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  // Auth guard hook
-  const { loading, user } = require("@/hooks/useAuthGuard").useAuthGuard();
+  // Auth guard hook using proper ES import (not require)
+  const { loading, user } = useAuthGuard();
 
   if (loading) {
     return (
