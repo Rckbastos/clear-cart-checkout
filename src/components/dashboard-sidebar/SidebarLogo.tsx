@@ -1,35 +1,29 @@
 
 import React from "react";
 
-// Use the provided static logo (not editable)
-const LOGO_SRC = "/public/lovable-uploads/f4e7ca0f-2401-44c7-836e-576b1a7ca692.png";
+// Novo logo horizontal fornecido pelo usuário
+const LOGO_SRC = "/public/lovable-uploads/abd06c94-adaa-4639-907e-08ee7ef02145.png";
 
 export function SidebarLogo({
   className = "",
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  // Use responsive design: horizontal layout normally, column on very narrow screens
   return (
     <div
-      className={`flex items-center gap-2 w-full px-2 py-0 select-none ${className}`}
+      className={`flex items-center justify-center w-full px-2 py-1 select-none ${className}`}
       {...props}
     >
       <img
         src={LOGO_SRC}
-        alt="Logo da Pegasus Checkout"
+        alt="Logo Pegasus Checkout"
         draggable={false}
-        className="h-10 w-auto max-w-[48px] object-contain transition-all duration-200"
-      />
-      {/* Show name for md and up, show on mobile if sidebar is expanded */}
-      <span
-        className="text-xl font-bold text-[#6E59A5] tracking-tight whitespace-nowrap"
+        className="w-full h-auto max-h-16 object-contain transition-all duration-200"
         style={{
-          fontFamily: "inherit",
-          letterSpacing: ".02em",
+          // Maximiza a largura mas limita altura para evitar quebra no mobile, mantém bom aspecto no desktop
+          maxWidth: "190px",
+          minWidth: 0,
         }}
-      >
-        Pegasus Checkout
-      </span>
+      />
     </div>
   );
 }
