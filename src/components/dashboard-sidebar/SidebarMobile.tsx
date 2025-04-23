@@ -2,13 +2,15 @@
 import React from "react";
 import {
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
-  Megaphone, Code, ChevronRight, ChevronLeft
+  Megaphone, Code, ChevronRight, ChevronLeft, Home
 } from "lucide-react";
 import { SidebarLogo } from "./SidebarLogo";
 import { SidebarMenu } from "./SidebarMenu";
 import { SidebarFooter } from "./SidebarFooter";
+import { StoreImageUpload } from "./StoreImageUpload";
 
 const iconsMap: Record<string, React.ReactNode> = {
+  "home": <Home size={22} />,
   "shopping-bag": <ShoppingBag size={22} />,
   "shopping-cart": <ShoppingCart size={22} />,
   "credit-card": <CreditCard size={22} />,
@@ -23,6 +25,8 @@ type Props = {
   menu: any[];
   openSections: { [key: string]: boolean };
   handleToggleSection: (key: string) => void;
+  imageUrl: string | null;
+  setImageUrl: (url: string | null) => void;
 };
 
 export function SidebarMobile({
@@ -31,6 +35,8 @@ export function SidebarMobile({
   menu,
   openSections,
   handleToggleSection,
+  imageUrl,
+  setImageUrl,
 }: Props) {
   const dividerColor = "#e5e7eb";
   const iconColor = "#6E59A5";
@@ -65,6 +71,8 @@ export function SidebarMobile({
         style={{ borderRight: `1px solid ${dividerColor}` }}
       >
         <div className="flex flex-col h-full">
+          {/* Editable logo at top */}
+          <StoreImageUpload imageUrl={imageUrl} setImageUrl={setImageUrl} />
           {/* Top bar (logo + close button) */}
           <div className="flex items-center justify-between p-4 pb-2">
             <SidebarLogo />

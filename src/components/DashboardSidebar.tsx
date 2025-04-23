@@ -1,10 +1,16 @@
-
 import React, { useState } from "react";
 import { SidebarDesktop } from "./dashboard-sidebar/SidebarDesktop";
 import { SidebarMobile } from "./dashboard-sidebar/SidebarMobile";
+import { StoreImageUpload } from "./dashboard-sidebar/StoreImageUpload";
 
 // Shared menu config for both sidebar views
 const MENU = [
+  {
+    key: "inicio",
+    icon: "home",
+    label: "Início",
+    collapsible: false,
+  },
   {
     key: "pedidos",
     icon: "shopping-bag",
@@ -69,6 +75,7 @@ export default function DashboardSidebar() {
     marketing: false,
     checkout: false,
   });
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   function handleToggleSection(section: string) {
     setOpenSections((prev) => ({
@@ -86,6 +93,8 @@ export default function DashboardSidebar() {
         menu={MENU}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
+        imageUrl={imageUrl}
+        setImageUrl={setImageUrl}
       />
 
       {/* Desktop Sidebar */}
@@ -95,6 +104,8 @@ export default function DashboardSidebar() {
         menu={MENU}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
+        imageUrl={imageUrl}
+        setImageUrl={setImageUrl}
       />
     </>
   );

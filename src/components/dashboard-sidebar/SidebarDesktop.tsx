@@ -2,15 +2,17 @@
 import React from "react";
 import { 
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
-  Megaphone, Code 
+  Megaphone, Code, Home
 } from "lucide-react";
 import { SidebarLogo } from "./SidebarLogo";
 import { SidebarToggleButton } from "./SidebarToggleButton";
 import { SidebarMenu } from "./SidebarMenu";
 import { SidebarFooter } from "./SidebarFooter";
+import { StoreImageUpload } from "./StoreImageUpload";
 
 // Map string keys to lucide icons
 const iconsMap: Record<string, React.ReactNode> = {
+  "home": <Home size={22} />,
   "shopping-bag": <ShoppingBag size={22} />,
   "shopping-cart": <ShoppingCart size={22} />,
   "credit-card": <CreditCard size={22} />,
@@ -25,6 +27,8 @@ type Props = {
   menu: any[];
   openSections: { [key: string]: boolean };
   handleToggleSection: (key: string) => void;
+  imageUrl: string | null;
+  setImageUrl: (url: string | null) => void;
 };
 
 export function SidebarDesktop({
@@ -33,6 +37,8 @@ export function SidebarDesktop({
   menu,
   openSections,
   handleToggleSection,
+  imageUrl,
+  setImageUrl
 }: Props) {
   const dividerColor = "#e5e7eb";
   const iconColor = "#6E59A5";
@@ -46,6 +52,8 @@ export function SidebarDesktop({
       `}
       style={{ borderRight: `1px solid ${dividerColor}` }}
     >
+      {/* Editable logo at top */}
+      <StoreImageUpload imageUrl={imageUrl} setImageUrl={setImageUrl} />
       {/* Logo */}
       <div className="flex items-center relative w-full mb-6 h-12">
         <div className={`flex-1 flex justify-center transition-all`}>
