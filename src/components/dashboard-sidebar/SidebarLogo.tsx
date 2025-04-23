@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // Altere o src para a imagem da sua empresa abaixo
@@ -8,14 +7,7 @@ export function SidebarLogo({
   className = "",
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={`flex items-center justify-center w-full px-2 py-0 ${className}`} {...props}>
-      <img
-        src={LOGO_SRC}
-        alt="Logo da empresa"
-        className="object-contain w-full max-h-14"
-        draggable={false}
-      />
-    </div>
-  );
+  return <div className={`flex items-center justify-center w-full px-2 py-0 ${className}`} {...props}>
+      <img src={LOGO_SRC} alt="Logo da empresa" draggable={false} className="w-full max-h-14 object-fill" />
+    </div>;
 }
