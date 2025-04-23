@@ -1,8 +1,7 @@
-
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/sonner";
-import { Wrench, Lock, Plus } from "lucide-react";
+import { Wrench, Lock, Plus, Shield } from "lucide-react";
 
 const metrics = [
   { label: "Total em vendas", value: "R$ 0,00", icon: "📦" },
