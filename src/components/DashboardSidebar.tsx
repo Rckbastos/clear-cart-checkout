@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   ShoppingCart,
@@ -17,6 +16,10 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { SidebarLogo } from "./dashboard-sidebar/SidebarLogo";
+import { SidebarToggleButton } from "./dashboard-sidebar/SidebarToggleButton";
+import { SidebarMenu } from "./dashboard-sidebar/SidebarMenu";
+import { SidebarFooter } from "./dashboard-sidebar/SidebarFooter";
 
 const MENU = [
   {
@@ -124,11 +127,7 @@ export default function DashboardSidebar() {
         <div className="flex flex-col h-full">
           {/* Top bar (logo + close button) */}
           <div className="flex items-center justify-between p-4 pb-2">
-            <img
-              src="/lovable-uploads/0b1d8853-fbe0-4456-be65-cf174fa44094.png"
-              alt="Logo"
-              className="w-10 h-10 rounded-full"
-            />
+            <SidebarLogo />
             <button
               className="ml-auto rounded-lg hover:bg-primary/10 p-1 transition"
               aria-label={mobileOpen ? "Fechar menu lateral" : "Abrir menu lateral"}
@@ -138,65 +137,16 @@ export default function DashboardSidebar() {
               <ChevronLeft size={22} color={iconColor} />
             </button>
           </div>
-          <nav className="flex flex-col gap-1 flex-1 w-full px-2 overflow-auto">
-            {MENU.map((item) => (
-              <div key={item.label}>
-                <button
-                  type="button"
-                  className={`relative flex items-center w-full h-12 rounded-lg hover:bg-primary/5 group transition px-2 pr-3 gap-3 justify-start`}
-                  onClick={
-                    item.collapsible
-                      ? () => handleToggleSection(item.key)
-                      : undefined
-                  }
-                  aria-expanded={item.collapsible ? !!openSections[item.key] : undefined}
-                >
-                  <span style={{ color: iconColor }}>{item.icon}</span>
-                  <span className="text-[15px] font-medium" style={{ color: labelColor }}>
-                    {item.label}
-                  </span>
-                  {item.collapsible && (
-                    <span className="ml-auto">
-                      {openSections[item.key] ? (
-                        <ChevronUp size={18} color={iconColor} />
-                      ) : (
-                        <ChevronDown size={18} color={iconColor} />
-                      )}
-                    </span>
-                  )}
-                </button>
-                {/* Submenu */}
-                {item.collapsible && openSections[item.key] && (
-                  <ul className="ml-7 border-l pl-3 my-1" style={{ borderColor: dividerColor }}>
-                    {item.items?.map((sub) => (
-                      <li key={sub.label}>
-                        <button
-                          className="py-1 w-full text-left text-[14px] font-normal text-neutral-500 hover:text-[var(--primary-purple,#7E69AB)] transition"
-                          style={{
-                            color: "#8E9196",
-                            fontWeight: 500,
-                          }}
-                          type="button"
-                        >
-                          {sub.label}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </nav>
-          <div className="flex flex-col items-center mb-2 w-full gap-1 px-2">
-            <button className="flex items-center rounded-lg hover:bg-primary/10 transition p-2 w-full justify-start gap-3">
-              <User size={22} color={iconColor} />
-              <span className="text-sm font-medium" style={{ color: labelColor }}>Perfil</span>
-            </button>
-            <button className="flex items-center rounded-lg hover:bg-primary/10 transition p-2 w-full justify-start gap-3">
-              <Settings size={22} color={iconColor} />
-              <span className="text-sm font-medium" style={{ color: labelColor }}>Configurações</span>
-            </button>
-          </div>
+          <SidebarMenu
+            menu={MENU}
+            expanded={true}
+            openSections={openSections}
+            handleToggleSection={handleToggleSection}
+            dividerColor={dividerColor}
+            iconColor={iconColor}
+            labelColor={labelColor}
+          />
+          <SidebarFooter expanded={true} iconColor={iconColor} labelColor={labelColor} className="px-2" />
         </div>
       </aside>
 
@@ -216,105 +166,24 @@ export default function DashboardSidebar() {
       >
         {/* Logo and toggle button container */}
         <div className="flex items-center justify-between w-full mb-6 relative">
-          <div className={`flex items-center ${expanded ? "justify-center w-full" : "justify-center w-full"}`}>
-            <img
-              src="/lovable-uploads/0b1d8853-fbe0-4456-be65-cf174fa44094.png"
-              alt="Logo"
-              className="w-10 h-10 rounded-full mb-3"
-            />
-          </div>
-          
-          {/* Toggle button positioned absolute to not affect layout */}
-          <button
-            aria-label={expanded ? "Retract sidebar" : "Expand sidebar"}
-            className="absolute top-0 right-0 z-20 rounded-lg hover:bg-primary/10 p-1 transition"
+          <SidebarLogo />
+          <SidebarToggleButton
+            expanded={expanded}
             onClick={() => setExpanded((e) => !e)}
-            type="button"
-          >
-            {expanded ? (
-              <ChevronLeft size={22} color={iconColor} />
-            ) : (
-              <ChevronRight size={22} color={iconColor} />
-            )}
-          </button>
+            iconColor={iconColor}
+            className="absolute top-0 right-0"
+          />
         </div>
-        
-        <nav className="flex flex-col gap-1 flex-1 w-full">
-          {MENU.map((item) => (
-            <div key={item.label}>
-              <button
-                type="button"
-                className={`relative flex items-center w-full h-12 rounded-lg hover:bg-primary/5 group transition px-2 pr-3 ${
-                  expanded ? "justify-start gap-3" : "justify-center"
-                }`}
-                onClick={
-                  item.collapsible && expanded
-                    ? () => handleToggleSection(item.key)
-                    : undefined
-                }
-                aria-expanded={item.collapsible ? !!openSections[item.key] : undefined}
-              >
-                <span style={{ color: iconColor }}>{item.icon}</span>
-                {expanded && (
-                  <span className="text-[15px] font-medium" style={{ color: labelColor }}>
-                    {item.label}
-                  </span>
-                )}
-                {item.collapsible && expanded && (
-                  <span className="ml-auto">
-                    {openSections[item.key] ? (
-                      <ChevronUp size={18} color={iconColor} />
-                    ) : (
-                      <ChevronDown size={18} color={iconColor} />
-                    )}
-                  </span>
-                )}
-                {!expanded && (
-                  <span className="absolute left-14 bg-black text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-90 pointer-events-none transition z-10">
-                    {item.label}
-                  </span>
-                )}
-              </button>
-              {/* Submenu */}
-              {item.collapsible && expanded && openSections[item.key] && (
-                <ul className="ml-7 border-l pl-3 my-1" style={{ borderColor: dividerColor }}>
-                  {item.items?.map((sub) => (
-                    <li key={sub.label}>
-                      <button
-                        className="py-1 w-full text-left text-[14px] font-normal text-neutral-500 hover:text-[var(--primary-purple,#7E69AB)] transition"
-                        style={{
-                          color: "#8E9196",
-                          fontWeight: 500,
-                        }}
-                        type="button"
-                      >
-                        {sub.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </nav>
-        <div className="mt-auto flex flex-col items-center mb-2 w-full gap-1">
-          <button
-            className={`flex items-center rounded-lg hover:bg-primary/10 transition p-2 ${
-              expanded ? "w-full justify-start gap-3" : "w-10 justify-center"
-            }`}
-          >
-            <User size={22} color={iconColor} />
-            {expanded && <span className="text-sm font-medium" style={{ color: labelColor }}>Perfil</span>}
-          </button>
-          <button
-            className={`flex items-center rounded-lg hover:bg-primary/10 transition p-2 ${
-              expanded ? "w-full justify-start gap-3" : "w-10 justify-center"
-            }`}
-          >
-            <Settings size={22} color={iconColor} />
-            {expanded && <span className="text-sm font-medium" style={{ color: labelColor }}>Configurações</span>}
-          </button>
-        </div>
+        <SidebarMenu
+          menu={MENU}
+          expanded={expanded}
+          openSections={openSections}
+          handleToggleSection={handleToggleSection}
+          dividerColor={dividerColor}
+          iconColor={iconColor}
+          labelColor={labelColor}
+        />
+        <SidebarFooter expanded={expanded} iconColor={iconColor} labelColor={labelColor} />
       </aside>
     </>
   );
