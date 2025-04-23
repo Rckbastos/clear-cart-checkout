@@ -1,40 +1,40 @@
 
 import React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 type Props = {
   expanded: boolean;
   onClick: () => void;
-  iconColor: string;
-  className?: string;
 };
 
 export function SidebarToggleButton({ 
   expanded, 
-  onClick, 
-  iconColor, 
-  className = "", 
-  ...props 
+  onClick
 }: Props) {
+  // Floating and neatly styled like "Loja Integrada"
   return (
     <button
       aria-label={expanded ? "Retract sidebar" : "Expand sidebar"}
-      className={`z-20 rounded-lg hover:bg-primary/10 p-2 transition flex items-center gap-2 ${className}`}
+      className="
+        absolute -right-4 top-1/2 -translate-y-1/2 z-30
+        rounded-full bg-white border border-gray-200
+        shadow-lg p-1 transition-all
+        hover:scale-105 hover:bg-gray-50
+        flex items-center justify-center
+      "
       onClick={onClick}
       type="button"
-      {...props}
+      style={{
+        boxShadow: "0 2px 8px 0 rgba(60, 33, 110, 0.08)",
+      }}
     >
-      {expanded ? (
-        <>
-          <ChevronLeft size={22} color={iconColor} />
-          <span className="text-sm text-gray-600">Hide</span>
-        </>
-      ) : (
-        <>
-          <ChevronRight size={22} color={iconColor} />
-          <span className="text-sm text-gray-600">View</span>
-        </>
-      )}
+      <ArrowLeft 
+        size={20} 
+        className={`
+          text-[#8E9196] transition-transform 
+          ${!expanded ? "rotate-180" : ""}
+        `}
+      />
     </button>
   );
 }

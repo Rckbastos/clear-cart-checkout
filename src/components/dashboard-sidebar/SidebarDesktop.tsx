@@ -34,14 +34,11 @@ export function SidebarDesktop({
   openSections,
   handleToggleSection,
 }: Props) {
-  // Styling
   const dividerColor = "#e5e7eb";
   const iconColor = "#6E59A5";
   const labelColor = "#1A1F2C";
   const widthClass = expanded ? "w-56" : "w-16";
 
-  // Smoother width/opacity transition for improved retract/expand
-  // We'll also use `overflow-hidden` to mask content when collapsed (required for animation tricks)
   return (
     <aside
       className={`hidden md:flex flex-col items-center ${widthClass} py-6 px-2 bg-white/60 backdrop-blur-xl shadow-[0_4px_32px_0_rgba(80,59,168,0.10)] transition-all duration-300 relative
@@ -49,21 +46,15 @@ export function SidebarDesktop({
       `}
       style={{ borderRight: `1px solid ${dividerColor}` }}
     >
-      {/* Logo and Toggle Button */}
+      {/* Logo */}
       <div className="flex items-center relative w-full mb-6 h-12">
         <div className={`flex-1 flex justify-center transition-all`}>
           <SidebarLogo className={expanded ? "" : "scale-90 transition-all"} />
         </div>
-        {/* Toggle button always visible, smooth margin transition */}
+        {/* New floating toggle button (Loja Integrada style) */}
         <SidebarToggleButton
           expanded={expanded}
           onClick={() => setExpanded((v) => !v)}
-          iconColor={iconColor}
-          className={`
-            absolute right-0 top-1/2 -translate-y-1/2
-            ${!expanded ? "shadow-sm bg-white/80 border border-gray-200" : ""}
-            transition-all duration-300
-          `}
         />
       </div>
       <SidebarMenu
