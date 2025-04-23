@@ -1,6 +1,12 @@
-import { User, Sun, Moon } from "lucide-react";
+
+import { User, Sun, Moon, Shield } from "lucide-react";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
+
 export default function DashboardHeader() {
-  return <header className="w-full flex items-center justify-between px-2 md:px-6 py-3 border-b border-[#ececf0] backdrop-blur-xl bg-gray-50">
+  const { isAdmin } = useIsAdmin();
+  
+  return (
+    <header className="w-full flex items-center justify-between px-2 md:px-6 py-3 border-b border-[#ececf0] backdrop-blur-xl bg-gray-50">
       <div>
         <h1 className="text-xl md:text-2xl font-bold text-[#383748]">Pegasus</h1>
         <p className="text-gray-400 text-xs">Gerencie os resultados de seu negócio</p>
@@ -16,9 +22,16 @@ export default function DashboardHeader() {
           <User className="mr-2 text-gray-400" size={22} />
           <div>
             <span className="block font-medium text-sm text-gray-700">Ricardo Bastos</span>
-            <span className="block text-xs text-blue-600 font-bold">Admin</span>
+            {isAdmin ? (
+              <span className="block text-xs bg-blue-600 text-white px-2 py-0.5 rounded-sm font-bold flex items-center">
+                <Shield size={10} className="mr-1" /> Admin
+              </span>
+            ) : (
+              <span className="block text-xs text-blue-600 font-bold">Usuário</span>
+            )}
           </div>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 }
