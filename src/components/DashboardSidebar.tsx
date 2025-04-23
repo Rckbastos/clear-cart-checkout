@@ -1,13 +1,15 @@
+
 import React, { useState } from "react";
 import { SidebarDesktop } from "./dashboard-sidebar/SidebarDesktop";
 import { SidebarMobile } from "./dashboard-sidebar/SidebarMobile";
 
-// Shared menu config for both sidebar views
+// Shared menu config for both sidebar views, com rotas
 const MENU = [
   {
     key: "inicio",
     icon: "home",
     label: "Início",
+    path: "/dashboard",
     collapsible: false,
   },
   {
@@ -16,15 +18,16 @@ const MENU = [
     label: "Pedidos",
     collapsible: true,
     items: [
-      { label: "Vendas" },
-      { label: "Carrinhos abandonados" },
-      { label: "Clientes" },
+      { label: "Vendas", path: "/vendas" },
+      { label: "Carrinhos abandonados", path: "/carrinhos" },
+      { label: "Clientes", path: "/clientes" },
     ],
   },
   {
     key: "produtos",
     icon: "shopping-cart",
     label: "Produtos",
+    path: "/produtos",
     collapsible: false,
   },
   {

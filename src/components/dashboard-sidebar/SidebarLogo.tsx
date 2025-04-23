@@ -1,8 +1,8 @@
 
 import React from "react";
 
-// Novo logo horizontal fornecido pelo usuário
-const LOGO_SRC = "/public/lovable-uploads/abd06c94-adaa-4639-907e-08ee7ef02145.png";
+// Novo logo fornecido pelo usuário (formato horizontal, sem texto ao lado)
+const LOGO_SRC = "/public/lovable-uploads/36c41d1a-db46-4687-a23d-57da6a0eaa00.png";
 
 export function SidebarLogo({
   className = "",
@@ -10,7 +10,7 @@ export function SidebarLogo({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={`flex items-center justify-center w-full px-2 py-1 select-none ${className}`}
+      className={`flex items-center justify-center w-full px-2 py-2 select-none ${className}`}
       {...props}
     >
       <img
@@ -19,7 +19,6 @@ export function SidebarLogo({
         draggable={false}
         className="w-full h-auto max-h-16 object-contain transition-all duration-200"
         style={{
-          // Maximiza a largura mas limita altura para evitar quebra no mobile, mantém bom aspecto no desktop
           maxWidth: "190px",
           minWidth: 0,
         }}

@@ -10,6 +10,11 @@ import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+// Novas páginas
+import Vendas from "./pages/Vendas";
+import Carrinhos from "./pages/Carrinhos";
+import Clientes from "./pages/Clientes";
+import Produtos from "./pages/Produtos";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +50,38 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/vendas"
+            element={
+              <ProtectedRoute>
+                <Vendas />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/carrinhos"
+            element={
+              <ProtectedRoute>
+                <Carrinhos />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/clientes"
+            element={
+              <ProtectedRoute>
+                <Clientes />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/produtos"
+            element={
+              <ProtectedRoute>
+                <Produtos />
               </ProtectedRoute>
             }
           />
