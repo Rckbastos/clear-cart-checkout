@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
@@ -6,7 +7,6 @@ import {
 import { SidebarLogo } from "./SidebarLogo";
 import { SidebarMenu } from "./SidebarMenu";
 import { SidebarFooter } from "./SidebarFooter";
-import { StoreImageUpload } from "./StoreImageUpload";
 
 const iconsMap: Record<string, React.ReactNode> = {
   "home": <Home size={22} />,

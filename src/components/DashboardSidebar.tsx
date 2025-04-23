@@ -1,7 +1,7 @@
+
 import React, { useState } from "react";
 import { SidebarDesktop } from "./dashboard-sidebar/SidebarDesktop";
 import { SidebarMobile } from "./dashboard-sidebar/SidebarMobile";
-import { StoreImageUpload } from "./dashboard-sidebar/StoreImageUpload";
 
 // Shared menu config for both sidebar views
 const MENU = [

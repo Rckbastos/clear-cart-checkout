@@ -1,3 +1,7 @@
-// O componente deixou de ser necessário.
-// Mantendo o arquivo, mas você pode deletar depois se desejar.
-export {}
+
+import React from 'react';
+
+// This is just a placeholder component since we're not using it anymore
+export const StoreImageUpload = () => {
+  return null;
+};
