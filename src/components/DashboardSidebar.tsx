@@ -214,28 +214,31 @@ export default function DashboardSidebar() {
         className={`hidden md:flex flex-col items-center ${widthDesktop} py-6 px-2 bg-white/60 backdrop-blur-xl shadow-[0_4px_32px_0_rgba(80,59,168,0.10)] transition-all duration-300 relative`}
         style={{ borderRight: `1px solid ${dividerColor}` }}
       >
-        {/* Toggle button always fixed at the top right edge */}
-        <button
-          aria-label={expanded ? "Retract sidebar" : "Expand sidebar"}
-          className="absolute top-4 right-3 z-20 rounded-lg hover:bg-primary/10 p-1 transition"
-          onClick={() => setExpanded((e) => !e)}
-          type="button"
-        >
-          {expanded ? (
-            <ChevronLeft size={22} color={iconColor} />
-          ) : (
-            <ChevronRight size={22} color={iconColor} />
-          )}
-        </button>
-        <div className="mb-6 flex flex-col items-center w-full">
-          <div className={`flex items-center w-full justify-center`}>
+        {/* Logo and toggle button container */}
+        <div className="flex items-center justify-between w-full mb-6 relative">
+          <div className={`flex items-center ${expanded ? "justify-center w-full" : "justify-center w-full"}`}>
             <img
               src="/lovable-uploads/0b1d8853-fbe0-4456-be65-cf174fa44094.png"
               alt="Logo"
               className="w-10 h-10 rounded-full mb-3"
             />
           </div>
+          
+          {/* Toggle button positioned absolute to not affect layout */}
+          <button
+            aria-label={expanded ? "Retract sidebar" : "Expand sidebar"}
+            className="absolute top-0 right-0 z-20 rounded-lg hover:bg-primary/10 p-1 transition"
+            onClick={() => setExpanded((e) => !e)}
+            type="button"
+          >
+            {expanded ? (
+              <ChevronLeft size={22} color={iconColor} />
+            ) : (
+              <ChevronRight size={22} color={iconColor} />
+            )}
+          </button>
         </div>
+        
         <nav className="flex flex-col gap-1 flex-1 w-full">
           {MENU.map((item) => (
             <div key={item.label}>
