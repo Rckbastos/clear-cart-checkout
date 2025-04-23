@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
@@ -8,7 +7,6 @@ import { SidebarLogo } from "./SidebarLogo";
 import { SidebarToggleButton } from "./SidebarToggleButton";
 import { SidebarMenu } from "./SidebarMenu";
 import { SidebarFooter } from "./SidebarFooter";
-import { StoreImageUpload } from "./StoreImageUpload";
 
 // Map string keys to lucide icons
 const iconsMap: Record<string, React.ReactNode> = {
@@ -52,14 +50,13 @@ export function SidebarDesktop({
       `}
       style={{ borderRight: `1px solid ${dividerColor}` }}
     >
-      {/* Editable logo at top */}
-      <StoreImageUpload imageUrl={imageUrl} setImageUrl={setImageUrl} />
-      {/* Logo */}
+      {/* Logo fixa (imagem retangular) */}
+      <SidebarLogo className="mb-6" />
+      {/* Botão de expandir/retrair */}
       <div className="flex items-center relative w-full mb-6 h-12">
         <div className={`flex-1 flex justify-center transition-all`}>
-          <SidebarLogo className={expanded ? "" : "scale-90 transition-all"} />
+          {/* Você pode colocar a logo menor aqui se desejar duplicar */}
         </div>
-        {/* New floating toggle button (Loja Integrada style) */}
         <SidebarToggleButton
           expanded={expanded}
           onClick={() => setExpanded((v) => !v)}

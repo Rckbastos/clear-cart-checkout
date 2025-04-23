@@ -75,7 +75,6 @@ export default function DashboardSidebar() {
     marketing: false,
     checkout: false,
   });
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   function handleToggleSection(section: string) {
     setOpenSections((prev) => ({
@@ -86,26 +85,23 @@ export default function DashboardSidebar() {
 
   return (
     <>
-      {/* Mobile Sidebar */}
       <SidebarMobile
         open={mobileOpen}
         setOpen={setMobileOpen}
         menu={MENU}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
-        imageUrl={imageUrl}
-        setImageUrl={setImageUrl}
+        imageUrl={null}
+        setImageUrl={() => {}}
       />
-
-      {/* Desktop Sidebar */}
       <SidebarDesktop
         expanded={expanded}
         setExpanded={setExpanded}
         menu={MENU}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
-        imageUrl={imageUrl}
-        setImageUrl={setImageUrl}
+        imageUrl={null}
+        setImageUrl={() => {}}
       />
     </>
   );

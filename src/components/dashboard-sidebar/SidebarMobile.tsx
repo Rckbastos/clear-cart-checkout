@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
@@ -42,10 +41,9 @@ export function SidebarMobile({
   const iconColor = "#6E59A5";
   const labelColor = "#1A1F2C";
 
-  // Responsive: Floating open button (hidden when sidebar open)
   return (
     <>
-      {/* BUTTON: Floating trigger when sidebar closed */}
+      {/* Floating open button */}
       {!open && (
         <button
           className="flex md:hidden fixed top-4 left-4 z-50 bg-white/80 border border-gray-200 rounded-lg shadow p-2 transition hover:scale-105"
@@ -60,7 +58,7 @@ export function SidebarMobile({
         </button>
       )}
 
-      {/* MOBILE SIDEBAR (animated sliding) */}
+      {/* MOBILE SIDEBAR */}
       <aside
         className={`
           fixed z-40 top-0 
@@ -71,11 +69,11 @@ export function SidebarMobile({
         style={{ borderRight: `1px solid ${dividerColor}` }}
       >
         <div className="flex flex-col h-full">
-          {/* Editable logo at top */}
-          <StoreImageUpload imageUrl={imageUrl} setImageUrl={setImageUrl} />
-          {/* Top bar (logo + close button) */}
+          {/* Logo fixa (imagem horizontal/retangular) */}
+          <SidebarLogo className="mt-4 mb-2" />
           <div className="flex items-center justify-between p-4 pb-2">
-            <SidebarLogo />
+            {/* Repetir logo se quiser na versão mobile */}
+            {/* <SidebarLogo /> */}
             <button
               className="ml-auto rounded-lg hover:bg-primary/10 p-1 transition"
               aria-label="Fechar menu lateral"
