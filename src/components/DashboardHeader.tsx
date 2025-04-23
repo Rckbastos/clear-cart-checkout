@@ -7,9 +7,9 @@ export default function DashboardHeader() {
   } = useIsAdmin();
   return <header className="w-full flex items-center justify-between px-2 md:px-6 py-3 border-b border-[#ececf0] backdrop-blur-xl bg-gray-50">
       <div className="flex items-center gap-3">
-        <h1 className="text-xl md:text-2xl font-bold text-[#383748]">Pegasus</h1>
         
-        <p className="text-gray-400 text-xs ml-2">Gerencie os resultados de seu negócio</p>
+        
+        
       </div>
       <div className="flex items-center gap-3">
         <button className="p-2 rounded-full hover:bg-secondary transition">
