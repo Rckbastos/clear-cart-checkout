@@ -5,17 +5,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
-import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
-import CheckoutPreview from "./pages/CheckoutPreview";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 const queryClient = new QueryClient();
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  // Auth guard hook using proper ES import (not require)
   const { loading, user } = useAuthGuard();
 
   if (loading) {
@@ -39,7 +36,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route
@@ -50,7 +47,6 @@ const App = () => (
               </ProtectedRoute>
             }
           />
-          <Route path="/checkout-preview" element={<CheckoutPreview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
