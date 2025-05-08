@@ -12,15 +12,21 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Verificar preferência salva
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    // Verificar preferência do sistema
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
-    return savedTheme || (prefersDark ? "dark" : "light");
+    if (typeof window !== 'undefined') {
+      // Verificar preferência salva
+      const savedTheme = localStorage.getItem("theme") as Theme;
+      // Verificar preferência do sistema
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      
+      return savedTheme || (prefersDark ? "dark" : "light");
+    }
+    return "light"; // Valor padrão para SSR
   });
 
   useEffect(() => {
+    // Verificar se estamos no navegador
+    if (typeof window === 'undefined') return;
+    
     // Salvar preferência no localStorage
     localStorage.setItem("theme", theme);
     

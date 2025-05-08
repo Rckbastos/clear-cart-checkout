@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       aria-label={theme === "light" ? "Ativar modo escuro" : "Ativar modo claro"}
     >
       {theme === "light" ? (
-        <Moon size={20} className="text-gray-700 dark:text-gray-300" />
+        <Moon size={20} className="text-gray-700" />
       ) : (
         <Sun size={20} className="text-gray-300" />
       )}
