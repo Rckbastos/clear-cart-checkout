@@ -1,5 +1,5 @@
 
-import { useIsAdmin } from "@/hooks/useIsAdmin";
+import { useIsAdmin } from "@/features/admin/useIsAdmin";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/sonner";
 import { Wrench, Lock, Plus, Shield } from "lucide-react";

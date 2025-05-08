@@ -1,7 +1,6 @@
 
 import { User, Shield } from "lucide-react";
-import { useIsAdmin } from "@/hooks/useIsAdmin";
-import { Button } from "@/components/ui/button";
+import { useIsAdmin } from "@/features/admin/useIsAdmin";
 import ThemeToggle from "./ThemeToggle";
 
 export default function DashboardHeader() {

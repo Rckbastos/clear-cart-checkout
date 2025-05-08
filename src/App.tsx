@@ -4,18 +4,18 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useAuthGuard } from "@/hooks/useAuthGuard";
-import { AdminRoute } from "@/components/AdminRoute";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import NotFound from "./pages/NotFound";
-import Dashboard from "./pages/Dashboard";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-// Novas páginas
-import Vendas from "./pages/Vendas";
-import Carrinhos from "./pages/Carrinhos";
-import Clientes from "./pages/Clientes";
-import Produtos from "./pages/Produtos";
+import { useAuthGuard } from "@/features/auth/useAuthGuard";
+import { AdminRoute } from "@/features/admin/AdminRoute";
+import { ThemeProvider } from "@/features/theme/ThemeContext";
+import NotFoundPage from "./components/common/pages/NotFoundPage";
+import DashboardPage from "./features/dashboard/DashboardPage";
+import SignInPage from "./features/auth/SignInPage";
+import SignUpPage from "./features/auth/SignUpPage";
+// Páginas de recursos
+import VendasPage from "./features/sales/VendasPage";
+import CarrinhosPage from "./features/carts/CarrinhosPage";
+import ClientesPage from "./features/customers/ClientesPage";
+import ProdutosPage from "./features/products/ProdutosPage";
 
 const queryClient = new QueryClient();
 
@@ -44,14 +44,14 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/sign-in" element={<SignIn />} />
-            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
             <Route
               path="/dashboard"
               element={
                 <ProtectedRoute>
-                  <Dashboard />
+                  <DashboardPage />
                 </ProtectedRoute>
               }
             />
@@ -59,7 +59,7 @@ const App = () => (
               path="/vendas"
               element={
                 <ProtectedRoute>
-                  <Vendas />
+                  <VendasPage />
                 </ProtectedRoute>
               }
             />
@@ -67,7 +67,7 @@ const App = () => (
               path="/carrinhos"
               element={
                 <ProtectedRoute>
-                  <Carrinhos />
+                  <CarrinhosPage />
                 </ProtectedRoute>
               }
             />
@@ -75,7 +75,7 @@ const App = () => (
               path="/clientes"
               element={
                 <ProtectedRoute>
-                  <Clientes />
+                  <ClientesPage />
                 </ProtectedRoute>
               }
             />
@@ -83,12 +83,12 @@ const App = () => (
               path="/produtos"
               element={
                 <ProtectedRoute>
-                  <Produtos />
+                  <ProdutosPage />
                 </ProtectedRoute>
               }
             />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
