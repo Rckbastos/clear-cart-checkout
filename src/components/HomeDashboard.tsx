@@ -17,7 +17,7 @@ export default function HomeDashboard() {
       {/* Header */}
       <header className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-8 py-8">
         <div>
-          <h1 className="text-3xl font-bold text-[#6E59A5] dark:text-[#a393ee] drop-shadow-sm">Dashboard</h1>
+          <h1 className="text-3xl font-bold text-amber-600 dark:text-amber-400 drop-shadow-sm">Dashboard</h1>
           <p className="text-gray-500 dark:text-gray-400 text-xs font-medium">
             Gerencie os resultados de seu negócio
           </p>
@@ -31,7 +31,7 @@ export default function HomeDashboard() {
           </Link>
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <button className="p-2 rounded-full bg-white dark:bg-gray-800 shadow hover:bg-[#f3f1f9] dark:hover:bg-gray-700 transition text-[#7E69AB] dark:text-[#9b87f5]">
+            <button className="p-2 rounded-full bg-white dark:bg-gray-800 shadow hover:bg-[#f3f1f9] dark:hover:bg-gray-700 transition text-amber-500 dark:text-amber-300">
               <Settings size={20} />
             </button>
           </div>
@@ -58,7 +58,7 @@ export default function HomeDashboard() {
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 px-8 mt-8">
         {/* Left - Chart placeholder */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col justify-between min-h-[260px]">
-          <div className="flex items-center gap-2 text-[#6E59A5] dark:text-[#9b87f5] mb-2">
+          <div className="flex items-center gap-2 text-amber-500 dark:text-amber-300 mb-2">
             <BarChart2 size={19} />
             <span className="font-semibold text-md">Crescimento de Receita</span>
           </div>
@@ -71,19 +71,19 @@ export default function HomeDashboard() {
         {/* Right - "Top Produtos" and payment/funnel info */}
         <div className="flex flex-col gap-6">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 min-h-[120px]">
-            <div className="font-semibold text-md text-[#6E59A5] dark:text-[#9b87f5] mb-4">Top produtos</div>
+            <div className="font-semibold text-md text-amber-500 dark:text-amber-300 mb-4">Top produtos</div>
             <div className="text-gray-400 dark:text-gray-500 text-sm italic">[Em breve]</div>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 min-h-[130px]">
-            <div className="font-semibold text-md text-[#6E59A5] dark:text-[#9b87f5] mb-2 flex items-center">
+            <div className="font-semibold text-md text-amber-500 dark:text-amber-300 mb-2 flex items-center">
               Funil de vendas
               <Info size={17} className="ml-1 text-[#B9B7D2] dark:text-[#786fa6]" />
             </div>
             <div className="grid grid-cols-2 gap-2 text-xs text-gray-500 dark:text-gray-400">
-              <div>Visitas únicas <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
-              <div>Primeira etapa <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
-              <div>Segunda etapa <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
-              <div>Vendas pagas <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
+              <div>Visitas únicas <span className="float-right font-bold text-amber-500 dark:text-amber-300">0</span></div>
+              <div>Primeira etapa <span className="float-right font-bold text-amber-500 dark:text-amber-300">0</span></div>
+              <div>Segunda etapa <span className="float-right font-bold text-amber-500 dark:text-amber-300">0</span></div>
+              <div>Vendas pagas <span className="float-right font-bold text-amber-500 dark:text-amber-300">0</span></div>
             </div>
           </div>
         </div>
@@ -100,8 +100,8 @@ export default function HomeDashboard() {
           <span className="text-3xl font-bold text-white mt-2">0</span>
         </div>
         <div className="bg-gradient-to-r from-[#D6BCFA] to-[#9b87f5] dark:from-[#b69fe0] dark:to-[#7c5bf9] rounded-2xl shadow-lg flex flex-col items-center justify-center py-8">
-          <span className="text-[#6E59A5] dark:text-[#1e1a2c] text-lg font-medium">Vendas Estornadas</span>
-          <span className="text-3xl font-bold text-[#6E59A5] dark:text-[#1e1a2c] mt-2">0</span>
+          <span className="text-amber-600 dark:text-amber-200 text-lg font-medium">Vendas Estornadas</span>
+          <span className="text-3xl font-bold text-amber-600 dark:text-amber-200 mt-2">0</span>
         </div>
         <div className="bg-gradient-to-r from-[#F5A8B8] to-[#9b87f5] dark:from-[#e08c9d] dark:to-[#7c5bf9] rounded-2xl shadow-lg flex flex-col items-center justify-center py-8">
           <span className="text-white text-lg font-medium">Reembolsos</span>

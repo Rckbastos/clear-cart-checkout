@@ -35,7 +35,7 @@ export default function DashboardMetrics() {
               <span className="bg-gray-100 dark:bg-gray-700 rounded-full mr-3 p-2 text-xl">{item.icon}</span>
               <div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">{item.label}</div>
-                <div className="font-bold text-lg text-[#533e84] dark:text-[#9b87f5]">{item.value}</div>
+                <div className="font-bold text-lg text-amber-500 dark:text-amber-300">{item.value}</div>
               </div>
             </div>
           ))}
