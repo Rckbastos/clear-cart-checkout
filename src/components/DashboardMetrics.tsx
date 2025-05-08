@@ -1,8 +1,7 @@
 
-import { useIsAdmin } from "@/features/admin/useIsAdmin";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/sonner";
-import { Wrench, Lock, Plus, Shield } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const metrics = [
   { label: "Total em vendas", value: "R$ 0,00", icon: "📦" },
@@ -16,12 +15,6 @@ const last7days = [
 ];
 
 export default function DashboardMetrics() {
-  const { isAdmin } = useIsAdmin();
-
-  const handleAdminAction = () => {
-    toast.success("Ação administrativa executada com sucesso!");
-  };
-
   return (
     <section className="mb-4">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -40,7 +33,7 @@ export default function DashboardMetrics() {
             </div>
           ))}
         </div>
-        {/* Filters and admin controls */}
+        {/* Filters */}
         <div className="flex flex-wrap items-center gap-2 md:gap-1 md:mt-0 mt-2">
           {last7days.map((d, i) =>
             typeof d === "string" ? (
@@ -63,50 +56,8 @@ export default function DashboardMetrics() {
           <span className="px-3 py-1 mt-2 md:mt-0 bg-white dark:bg-gray-800 rounded shadow text-xs border border-gray-200 dark:border-gray-700">
             Apr 15, 2025 – Apr 22, 2025
           </span>
-
-          {isAdmin && (
-            <div className="flex gap-2 mt-2 md:mt-0 w-full md:w-auto">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleAdminAction}
-                className="flex items-center gap-1 bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-800/50 text-blue-700 dark:text-blue-300"
-              >
-                <Wrench size={14} />
-                <span>Admin Config</span>
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => toast.info("Área de administração acessada")}
-                className="flex items-center gap-1 bg-purple-50 dark:bg-purple-900/30 border-purple-200 dark:border-purple-800 hover:bg-purple-100 dark:hover:bg-purple-800/50 text-purple-700 dark:text-purple-300"
-              >
-                <Lock size={14} />
-                <span>Área Restrita</span>
-              </Button>
-            </div>
-          )}
         </div>
       </div>
-
-      {isAdmin && (
-        <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-100 dark:border-blue-800/40 rounded-lg">
-          <h3 className="font-medium text-blue-800 dark:text-blue-300 mb-2 flex items-center">
-            <Shield size={16} className="mr-2" /> Controles de Administrador
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            <Button size="sm" variant="outline" className="bg-white dark:bg-gray-800" onClick={() => toast.success("Usuários gerenciados com sucesso")}>
-              Gerenciar Usuários
-            </Button>
-            <Button size="sm" variant="outline" className="bg-white dark:bg-gray-800" onClick={() => toast.success("Configurações atualizadas")}>
-              Configurações do Sistema
-            </Button>
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800" onClick={() => toast.success("Novo recurso adicionado")}>
-              <Plus size={14} className="mr-1" /> Adicionar Recurso
-            </Button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
