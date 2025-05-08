@@ -1,73 +1,73 @@
-# Welcome to your Lovable project
 
-## Project info
+# Clear Cart Checkout
 
-**URL**: https://lovable.dev/projects/dc5280bd-d7b3-471c-9f42-eb04a8699591
+Este projeto é uma aplicação web para gestão e visualização de contas de usuário, utilizando tecnologias modernas para uma experiência fluida e responsiva.
 
-## How can I edit this code?
+## Tecnologias Utilizadas
 
-There are several ways of editing your application.
+- **React**: Biblioteca JavaScript para construção de interfaces
+- **TypeScript**: Adiciona tipagem estática ao JavaScript
+- **Vite**: Ferramenta de build rápida para desenvolvimento moderno
+- **Tailwind CSS**: Framework CSS utilitário
+- **shadcn/ui**: Componentes de UI reutilizáveis
+- **Supabase**: Backend as a Service para autenticação e banco de dados
+- **React Router**: Gerenciamento de rotas na aplicação
+- **React Query**: Biblioteca para gerenciamento de estado de dados
 
-**Use Lovable**
+## Estrutura do Projeto
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/dc5280bd-d7b3-471c-9f42-eb04a8699591) and start prompting.
+Este projeto segue a arquitetura Feature-Sliced Design (FSD), organizando o código por funcionalidades em vez de tipos técnicos.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Principais Diretórios
 
-**Use your preferred IDE**
+- **src/features/**: Contém todas as funcionalidades específicas do negócio
+  - **auth/**: Autenticação e controle de acesso
+  - **dashboard/**: Interface principal do dashboard
+  - **products/**: Gerenciamento de produtos
+  - **carts/**: Gerenciamento de carrinhos
+  - **sales/**: Processamento e análise de vendas
+  - **customers/**: Gerenciamento de clientes
+  - **theme/**: Configurações de tema da aplicação
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **src/components/**: Contém componentes reutilizáveis
+  - **ui/**: Componentes de interface da biblioteca shadcn/ui
+  - **common/**: Componentes globais e páginas comuns
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **src/integrations/**: Interfaces com serviços externos
+  - **supabase/**: Cliente e utilitários para o Supabase
 
-Follow these steps:
+- **src/lib/**: Utilitários e funções auxiliares
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Fluxo de Autenticação
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+O sistema implementa autenticação com Supabase:
+1. Usuários podem se registrar com email/senha na página de cadastro
+2. Após o login bem-sucedido, o usuário é redirecionado para o dashboard
+3. Rotas protegidas são guardadas pelo hook useAuthGuard
+4. O estado de autenticação é sincronizado com o Supabase usando onAuthStateChange
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Visualização de Dados do Usuário
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+O dashboard apresenta:
+- Métricas relevantes do usuário
+- Gráficos e dados analíticos
+- Interface adaptativa para diferentes dispositivos
+
+## Como Executar o Projeto
+
+```bash
+# Instalar dependências
+npm install
+
+# Executar em ambiente de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Variáveis de Ambiente
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Crie um arquivo .env na raiz do projeto com as seguintes variáveis:
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/dc5280bd-d7b3-471c-9f42-eb04a8699591) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```
+VITE_SUPABASE_URL=sua_url_do_supabase
+VITE_SUPABASE_ANON_KEY=sua_chave_anon_do_supabase
+```
