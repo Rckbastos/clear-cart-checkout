@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
@@ -32,16 +33,14 @@ export function SidebarMobile({
   openSections,
   handleToggleSection,
 }: Props) {
-  const dividerColor = "#e5e7eb";
   const iconColor = "#6E59A5";
-  const labelColor = "#1A1F2C";
 
   return (
     <>
       {/* Floating open button */}
       {!open && (
         <button
-          className="flex md:hidden fixed top-4 left-4 z-50 bg-white/80 border border-gray-200 rounded-lg shadow p-2 transition hover:scale-105"
+          className="flex md:hidden fixed top-4 left-4 z-50 bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-lg shadow p-2 transition hover:scale-105"
           onClick={() => setOpen(true)}
           aria-label="Abrir menu lateral"
           type="button"
@@ -49,7 +48,7 @@ export function SidebarMobile({
             boxShadow: "0 4px 12px 0 rgba(80,59,168,0.08)"
           }}
         >
-          <ChevronRight size={26} color={iconColor} />
+          <ChevronRight size={26} className="text-[#6E59A5] dark:text-[#9b87f5]" />
         </button>
       )}
 
@@ -58,10 +57,10 @@ export function SidebarMobile({
         className={`
           fixed z-40 top-0 
           ${open ? "left-0 opacity-100 pointer-events-auto" : "-left-60 opacity-0 pointer-events-none"}
-          h-full w-56 bg-white/95 backdrop-blur-xl shadow-[0_4px_32px_0_rgba(80,59,168,0.10)] 
+          h-full w-56 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl shadow-[0_4px_32px_0_rgba(80,59,168,0.10)] dark:shadow-[0_4px_32px_0_rgba(0,0,0,0.3)]
           transition-all duration-300 flex flex-col
+          border-r border-gray-200 dark:border-gray-700
         `}
-        style={{ borderRight: `1px solid ${dividerColor}` }}
       >
         <div className="flex flex-col h-full">
           {/* Updated logo and app name */}
@@ -73,7 +72,7 @@ export function SidebarMobile({
               onClick={() => setOpen(false)}
               type="button"
             >
-              <ChevronLeft size={22} color={iconColor} />
+              <ChevronLeft size={22} className="text-[#6E59A5] dark:text-[#9b87f5]" />
             </button>
           </div>
           <SidebarMenu
@@ -84,11 +83,11 @@ export function SidebarMobile({
             expanded={true}
             openSections={openSections}
             handleToggleSection={handleToggleSection}
-            dividerColor={dividerColor}
-            iconColor={iconColor}
-            labelColor={labelColor}
+            dividerColor="currentColor"
+            iconColor="currentColor"
+            labelColor="currentColor"
           />
-          <SidebarFooter expanded={true} iconColor={iconColor} labelColor={labelColor} className="px-2" />
+          <SidebarFooter expanded={true} iconColor="currentColor" labelColor="currentColor" className="px-2" />
         </div>
       </aside>
 

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { 
   ShoppingCart, ShoppingBag, CreditCard, Truck, 
@@ -34,17 +35,14 @@ export function SidebarDesktop({
   openSections,
   handleToggleSection,
 }: Props) {
-  const dividerColor = "#e5e7eb";
-  const iconColor = "#6E59A5";
-  const labelColor = "#1A1F2C";
   const widthClass = expanded ? "w-56" : "w-16";
 
   return (
     <aside
-      className={`hidden md:flex flex-col items-center ${widthClass} py-6 px-2 bg-white/60 backdrop-blur-xl shadow-[0_4px_32px_0_rgba(80,59,168,0.10)] transition-all duration-300 relative
+      className={`hidden md:flex flex-col items-center ${widthClass} py-6 px-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl shadow-[0_4px_32px_0_rgba(80,59,168,0.10)] dark:shadow-[0_4px_32px_0_rgba(0,0,0,0.3)] transition-all duration-300 relative
         ${expanded ? "overflow-visible" : "overflow-hidden"}
+        border-r border-[#e5e7eb] dark:border-gray-700
       `}
-      style={{ borderRight: `1px solid ${dividerColor}` }}
     >
       {/* Logo fixa (imagem retangular) */}
       <SidebarLogo className="mb-6" />
@@ -66,14 +64,14 @@ export function SidebarDesktop({
         expanded={expanded}
         openSections={openSections}
         handleToggleSection={handleToggleSection}
-        dividerColor={dividerColor}
-        iconColor={iconColor}
-        labelColor={labelColor}
+        dividerColor="currentColor"
+        iconColor="currentColor"
+        labelColor="currentColor"
       />
       <SidebarFooter
         expanded={expanded}
-        iconColor={iconColor}
-        labelColor={labelColor}
+        iconColor="currentColor"
+        labelColor="currentColor"
       />
     </aside>
   );

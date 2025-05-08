@@ -1,3 +1,4 @@
+
 import { BarChart2, Info } from "lucide-react";
 
 export default function DashboardCharts() {
@@ -5,41 +6,41 @@ export default function DashboardCharts() {
     <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-6">
       {/* Chart & Top Product */}
       <div className="col-span-2 flex flex-col gap-5">
-        <div className="bg-white rounded-lg shadow p-6 flex-1 min-h-[320px]">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex-1 min-h-[320px]">
           <div className="flex items-center gap-2 mb-2">
-            <BarChart2 size={20} className="text-gray-400" />
-            <span className="font-semibold text-gray-600 text-sm">Crescimento da receita</span>
+            <BarChart2 size={20} className="text-gray-400 dark:text-gray-500" />
+            <span className="font-semibold text-gray-600 dark:text-gray-300 text-sm">Crescimento da receita</span>
           </div>
-          <div className="h-44 rounded bg-gray-50 flex items-center justify-center text-gray-300 italic">[Gráfico placeholder]</div>
+          <div className="h-44 rounded bg-gray-50 dark:bg-gray-700 flex items-center justify-center text-gray-300 dark:text-gray-600 italic">[Gráfico placeholder]</div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6 flex-1 min-h-[130px]">
-          <div className="font-semibold text-gray-600 text-sm mb-4">Top produtos</div>
-          <div className="text-gray-400 text-sm italic">[Em breve]</div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex-1 min-h-[130px]">
+          <div className="font-semibold text-gray-600 dark:text-gray-300 text-sm mb-4">Top produtos</div>
+          <div className="text-gray-400 dark:text-gray-500 text-sm italic">[Em breve]</div>
         </div>
       </div>
       {/* Pagamento e Funil */}
       <div className="flex flex-col gap-5">
-        <div className="bg-white rounded-lg shadow p-6 mb-2">
-          <div className="font-bold text-sm mb-2">Formas de pagamento</div>
-          <div className="mb-2 flex flex-col gap-1 text-xs text-gray-600">
-            <div>Cartão <span className="ml-1 text-gray-400">0 Tentativas de pagamento no cartão</span> <span className="float-right">0</span></div>
-            <div>Boleto <span className="ml-1 text-gray-400">0 Tentativas de pagamento no boleto</span> <span className="float-right">0</span></div>
-            <div>Pix <span className="ml-1 text-gray-400">0 Tentativas de pagamento no pix</span> <span className="float-right">0</span></div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-2">
+          <div className="font-bold text-sm mb-2 dark:text-gray-300">Formas de pagamento</div>
+          <div className="mb-2 flex flex-col gap-1 text-xs text-gray-600 dark:text-gray-400">
+            <div>Cartão <span className="ml-1 text-gray-400 dark:text-gray-500">0 Tentativas de pagamento no cartão</span> <span className="float-right">0</span></div>
+            <div>Boleto <span className="ml-1 text-gray-400 dark:text-gray-500">0 Tentativas de pagamento no boleto</span> <span className="float-right">0</span></div>
+            <div>Pix <span className="ml-1 text-gray-400 dark:text-gray-500">0 Tentativas de pagamento no pix</span> <span className="float-right">0</span></div>
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6 mb-2">
-          <div className="font-bold text-sm mb-2 flex items-center">Funil de vendas</div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-2">
+          <div className="font-bold text-sm mb-2 flex items-center dark:text-gray-300">Funil de vendas</div>
           <div className="flex flex-row gap-5">
             <div className="flex-1">
-              <div className="text-xs text-gray-600">Visitas únicas <span className="float-right font-bold text-blue-500">0</span></div>
-              <div className="text-xs text-gray-600">Primeira etapa <span className="float-right font-bold text-blue-500">0</span></div>
-              <div className="text-xs text-gray-600 flex items-center">
+              <div className="text-xs text-gray-600 dark:text-gray-400">Visitas únicas <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Primeira etapa <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 flex items-center">
                 Segunda etapa
-                <Info size={14} className="ml-1 text-gray-400" />
-                <span className="float-right font-bold text-blue-500 ml-auto">0</span>
+                <Info size={14} className="ml-1 text-gray-400 dark:text-gray-500" />
+                <span className="float-right font-bold text-blue-500 dark:text-blue-400 ml-auto">0</span>
               </div>
-              <div className="text-xs text-gray-600">Vendas <span className="float-right font-bold text-blue-500">0</span></div>
-              <div className="text-xs text-gray-600">Vendas pagas <span className="float-right font-bold text-blue-500">0</span></div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Vendas <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Vendas pagas <span className="float-right font-bold text-blue-500 dark:text-blue-400">0</span></div>
             </div>
             <div className="flex flex-col items-center justify-center min-w-[70px]">
               <svg width="60" height="90" viewBox="0 0 60 90">
@@ -54,13 +55,13 @@ export default function DashboardCharts() {
           </div>
         </div>
         <div className="flex gap-3">
-          <div className="flex-1 flex flex-col bg-white rounded-lg shadow py-6 px-4 justify-center items-center min-h-[86px]">
-            <span className="text-gray-400 flex items-center text-xs"><BarChart2 size={15} className="mr-1" /> Carrinhos abandonados</span>
-            <span className="font-bold mt-1 text-lg text-gray-700">0</span>
+          <div className="flex-1 flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow py-6 px-4 justify-center items-center min-h-[86px]">
+            <span className="text-gray-400 dark:text-gray-500 flex items-center text-xs"><BarChart2 size={15} className="mr-1" /> Carrinhos abandonados</span>
+            <span className="font-bold mt-1 text-lg text-gray-700 dark:text-gray-300">0</span>
           </div>
-          <div className="flex-1 flex flex-col bg-white rounded-lg shadow py-6 px-4 justify-center items-center min-h-[86px]">
-            <span className="text-gray-400 flex items-center text-xs"><BarChart2 size={15} className="mr-1" /> Pedidos cancelados</span>
-            <span className="font-bold mt-1 text-lg text-gray-700">0</span>
+          <div className="flex-1 flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow py-6 px-4 justify-center items-center min-h-[86px]">
+            <span className="text-gray-400 dark:text-gray-500 flex items-center text-xs"><BarChart2 size={15} className="mr-1" /> Pedidos cancelados</span>
+            <span className="font-bold mt-1 text-lg text-gray-700 dark:text-gray-300">0</span>
           </div>
         </div>
       </div>
